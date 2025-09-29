@@ -1,0 +1,244 @@
+.navigation-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: #1e293b;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    border-right: 1px solid #334155;
+  }
+  
+  .navigation-header {
+    padding: 24px;
+    border-bottom: 1px solid #334155;
+    background: #0f172a;
+  }
+  
+  .navigation-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    text-align: left;
+    letter-spacing: -0.025em;
+  }
+  
+  .navigation-user {
+    padding: 12px 16px;
+    background: #334155;
+    border-radius: 8px;
+    border: 1px solid #475569;
+  }
+  
+  .user-name {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #f8fafc;
+    margin-bottom: 4px;
+  }
+  
+  .user-role {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    background: #475569;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    font-weight: 500;
+  }
+  
+  .navigation-menu {
+    flex: 1;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+  }
+  
+  .navigation-menu::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .navigation-menu::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .navigation-menu::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 2px;
+  }
+  
+  .navigation-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    width: 100%;
+    font-size: 0.875rem;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .navigation-item:hover {
+    background: #334155;
+    color: #f8fafc;
+  }
+  
+  .navigation-item.active {
+    background: #0ea5e9;
+    color: #ffffff;
+  }
+  
+  .navigation-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #ffffff;
+  }
+  
+  .navigation-icon {
+    font-size: 1.125rem;
+    margin-right: 12px;
+    min-width: 20px;
+    text-align: center;
+  }
+  
+  .navigation-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .navigation-footer {
+    padding: 24px;
+    border-top: 1px solid #334155;
+  }
+  
+  .navigation-logout {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background: #dc2626;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    width: 100%;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 6px;
+  }
+  
+  .navigation-logout:hover {
+    background: #b91c1c;
+  }
+  
+  .navigation-logout .navigation-icon {
+    margin-right: 12px;
+    min-width: 20px;
+    text-align: center;
+    font-size: 1.125rem;
+  }
+  
+  /* Main content area adjustment */
+  .main-content {
+    margin-left: 280px;
+    min-height: 100vh;
+    background: #f8fafc;
+    transition: margin-left 0.2s ease;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navigation-sidebar {
+      width: 240px;
+    }
+    
+    .main-content {
+      margin-left: 240px;
+    }
+    
+    .navigation-title {
+      font-size: 1.375rem;
+    }
+    
+    .navigation-item {
+      padding: 10px 20px;
+    }
+    
+    .navigation-icon {
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navigation-sidebar {
+      width: 64px;
+    }
+    
+    .main-content {
+      margin-left: 64px;
+    }
+    
+    .navigation-header {
+      padding: 16px 12px;
+    }
+    
+    .navigation-title {
+      font-size: 1rem;
+      text-align: center;
+    }
+    
+    .navigation-user {
+      display: none;
+    }
+    
+    .navigation-item {
+      padding: 16px 12px;
+      justify-content: center;
+    }
+    
+    .navigation-label {
+      display: none;
+    }
+    
+    .navigation-icon {
+      margin-right: 0;
+      font-size: 1.25rem;
+    }
+    
+    .navigation-footer {
+      padding: 16px 12px;
+    }
+    
+    .navigation-logout {
+      padding: 16px 12px;
+      justify-content: center;
+    }
+    
+    .navigation-logout .navigation-label {
+      display: none;
+    }
+    
+    .navigation-logout .navigation-icon {
+      margin-right: 0;
+    }
+  }
