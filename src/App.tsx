@@ -8,6 +8,8 @@ import LandingPage from './components/LandingPage';
 import FilmsPage from './components/FilmsPage';
 import FilmDetails from './components/FilmDetails';
 import ActorDetails from './components/ActorDetails';
+import CustomersPage from './components/CustomersPage';
+import CustomerDetails from './components/CustomerDetails';
 
 function App() {
   return (
@@ -51,6 +53,26 @@ function App() {
               <ProtectedRoute>
                 <Layout>
                   <ActorDetails />
+                </Layout>
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/customers" 
+            element={
+              <ProtectedRoute>
+                <Layout>
+                  <CustomersPage />
+                </Layout>
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/customer/:customerId" 
+            element={
+              <ProtectedRoute>
+                <Layout>
+                  <CustomerDetails />
                 </Layout>
               </ProtectedRoute>
             } 

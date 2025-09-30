@@ -89,10 +89,7 @@ const ActorDetails: React.FC = () => {
                 <label>Last Name:</label>
                 <span>{actor.last_name}</span>
               </div>
-              <div className="actor-info-item">
-                <label>Full Name:</label>
-                <span>{actor.full_name}</span>
-              </div>
+              
               <div className="actor-info-item">
                 <label>Actor ID:</label>
                 <span>{actor.actor_id}</span>

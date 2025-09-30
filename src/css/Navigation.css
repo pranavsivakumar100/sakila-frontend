@@ -14,8 +14,8 @@
   }
   
   .navigation-header {
-    padding: 24px;
-    border-bottom: 1px solid #334155;
+    padding: 16px 24px;
+    border-bottom: 2px solid #334155;
     background: #0f172a;
   }
   
@@ -23,7 +23,7 @@
     font-size: 1.5rem;
     font-weight: 600;
     color: #ffffff;
-    margin: 0 0 16px 0;
+    margin: 0 0 4px 0;
     text-align: left;
     letter-spacing: -0.025em;
   }
@@ -130,32 +130,45 @@
     border-top: 1px solid #334155;
   }
   
-  .navigation-logout {
+  .navigation-profile { position: relative; }
+
+  .profile-button {
+    width: 100%;
     display: flex;
     align-items: center;
-    padding: 12px 20px;
-    background: #dc2626;
-    border: none;
-    color: white;
+    gap: 12px;
+    padding: 12px 14px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #e2e8f0;
     cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: left;
-    width: 100%;
-    font-size: 0.875rem;
-    font-weight: 500;
-    border-radius: 6px;
+    transition: background 0.2s ease, border-color 0.2s ease;
   }
-  
-  .navigation-logout:hover {
-    background: #b91c1c;
+  .profile-button:hover { background: #111827; border-color: #475569; }
+
+  .profile-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: #334155; color: #f8fafc; font-weight: 700;
+    text-transform: uppercase;
   }
-  
-  .navigation-logout .navigation-icon {
-    margin-right: 12px;
-    min-width: 20px;
-    text-align: center;
-    font-size: 1.125rem;
+  .profile-info { flex: 1; text-align: left; }
+  .profile-name { font-size: 0.9rem; font-weight: 600; color: #f8fafc; }
+  .profile-role { font-size: 0.75rem; color: #94a3b8; }
+  .profile-caret { color: #94a3b8; }
+
+  .profile-menu {
+    position: absolute; left: 0; right: 0; bottom: 56px;
+    background: #0f172a; border: 1px solid #334155; border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    overflow: hidden;
   }
+  .profile-menu-item {
+    width: 100%; text-align: left; padding: 12px 14px; border: none;
+    background: transparent; color: #e2e8f0; cursor: pointer;
+  }
+  .profile-menu-item:hover { background: #111827; }
   
   /* Main content area adjustment */
   .main-content {

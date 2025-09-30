@@ -46,7 +46,7 @@ const LandingPage: React.FC = () => {
   return (
     <div className="landing-container">
       <div className="landing-header">
-        <h1 className="landing-title">Dashboard</h1>
+        <h1 className="landing-title">Home</h1>
         <p className="landing-subtitle">Welcome to Sakila Management System</p>
       </div>
 

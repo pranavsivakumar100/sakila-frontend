@@ -41,9 +41,6 @@ const FilmDetails: React.FC = () => {
       <div className="film-details-error">
         <h2>Error</h2>
         <p>{error}</p>
-        <button onClick={() => navigate('/')} className="film-details-back-btn">
-          Back to Home
-        </button>
       </div>
     );
   }
@@ -53,9 +50,6 @@ const FilmDetails: React.FC = () => {
       <div className="film-details-error">
         <h2>Film Not Found</h2>
         <p>The requested film could not be found.</p>
-        <button onClick={() => navigate('/')} className="film-details-back-btn">
-          Back to Home
-        </button>
       </div>
     );
   }
@@ -63,12 +57,6 @@ const FilmDetails: React.FC = () => {
   return (
     <div className="film-details-container">
       <div className="film-details-header">
-        <button 
-          onClick={() => navigate('/')}
-          className="film-details-back-btn"
-        >
-          ← Back to Home
-        </button>
         <h1 className="film-details-title">{film.title}</h1>
       </div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { filmService, Film } from '../services/filmService';
 import { useNavigate } from 'react-router-dom';
 import '../css/FilmsPage.css';
@@ -40,6 +40,46 @@ const FilmsPage: React.FC = () => {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    // Clear previous error when user starts typing
+    if (error) setError('');
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => {
+      // Trigger search only if there is some input
+      if (searchTerm.trim()) {
+        (async () => {
+          setLoading(true);
+          try {
+            let results: Film[] = [];
+            switch (searchType) {
+              case 'title':
+                results = await filmService.searchFilmsByTitle(searchTerm);
+                break;
+              case 'actor':
+                results = await filmService.searchFilmsByActor(searchTerm);
+                break;
+              case 'genre':
+                results = await filmService.searchFilmsByGenre(searchTerm);
+                break;
+            }
+            setSearchResults(results);
+          } catch (err: any) {
+            setError(err?.response?.data?.error || 'Search failed');
+          } finally {
+            setLoading(false);
+          }
+        })();
+      } else {
+        setSearchResults([]);
+      }
+    }, 400); 
+
+    return () => {
+      controller.abort();
+      clearTimeout(timeout);
+    };
+  }, [searchTerm, searchType]);
 
   const handleFilmClick = (filmId: number) => {
     navigate(`/film/${filmId}`);
@@ -70,16 +110,9 @@ const FilmsPage: React.FC = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder={`Search by ${searchType}...`}
             className="films-search-input"
-            onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
           />
-          <button 
-            onClick={handleSearch}
-            disabled={loading}
-            className="films-search-btn"
-          >
-            {loading ? 'Searching...' : 'Search'}
-          </button>
         </div>
+        <p className="films-search-hint">Searching as you type…</p>
         {error && <div className="films-error">{error}</div>}
       </div>
 
